@@ -5,7 +5,7 @@ const mongooseConnection = require("./helpers/mongoose-connection");
 const appRoutes = require("./routes");
 require('dotenv').config();
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 const { scheduleBackup } = require('./backup/backup');
 
 

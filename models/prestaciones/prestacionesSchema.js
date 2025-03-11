@@ -3,21 +3,21 @@ const mongoose = require('mongoose');
 const pagoSchema = new mongoose.Schema({
   monto: {
     type: Number,
-    required: true,
+    required: false,
     min: 0
   },
   fecha: {
     type: Date,
-    required: true,
+    required: false,
     default: Date.now
   },
   odontologoId: {
     type: String,
-    required: true
+    required: false
   },
   nombreOdontologo: {  // Nuevo campo
     type: String,
-    required: true
+    required: false
   },
   editadoPor: {
     type: String
@@ -47,16 +47,16 @@ const prestacionesSchema = new mongoose.Schema({
   pacienteId: { 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'Paciente', 
-    required: [true, 'El ID del paciente es obligatorio']
+    required: [false, 'El ID del paciente es obligatorio']
   },
   tratamientoId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Tratamiento',
-    required: [true, 'El ID del tratamiento es obligatorio']
+    required: [false, 'El ID del tratamiento es obligatorio']
   },
   precio: {
     type: Number, 
-    required: true, 
+    required: false, 
     min: 0,
     message: 'El precio es obligatorio y debe ser mayor a 0'
   },
@@ -67,11 +67,11 @@ const prestacionesSchema = new mongoose.Schema({
   },
   creadoPor: {
     type: String,
-    required: true
+    required: false
   },
   nombreCreador: {     // Nuevo campo
     type: String,
-    required: true
+    required: false
   },
   modificadoPor: {
     type: String
